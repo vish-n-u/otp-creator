@@ -1,7 +1,12 @@
 const Sequelise = require("sequelize");
 
-const sequelize = new Sequelise("otpcreator", "root", "MYSQLlover@123", {
-  host: "127.0.0.1",
+const USER_NAME = process.env.USER_NAME;
+const DB_NAME = process.env.DB_NAME;
+const HOST = process.env.HOST;
+const PASSWORD = process.env.PASSWORD_DB;
+console.log(DB_NAME, USER_NAME, PASSWORD);
+const sequelize = new Sequelise(DB_NAME, USER_NAME, PASSWORD, {
+  host: "localHost",
   dialect: "mysql",
 });
 
