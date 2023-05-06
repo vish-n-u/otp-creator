@@ -6,7 +6,14 @@ const Sequelise = require("sequelize");
 const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+
+const corsOptions = {
+  origin: "https://main--deluxe-cuchufli-f03acb.netlify.app",
+
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // allow these methods
+  allowedHeaders: ["Content-Type"], // allow these headers
+};
+app.use(cors(corsOptions));
 app.get("/", (req, res) => {
   res.status(200).send("Successfully created!");
 });
