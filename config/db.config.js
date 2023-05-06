@@ -6,7 +6,7 @@ const HOST = process.env.HOST;
 const PASSWORD = process.env.PASSWORD_DB;
 console.log(DB_NAME, USER_NAME, PASSWORD);
 const sequelize = new Sequelise(DB_NAME, USER_NAME, PASSWORD, {
-  host: "localHost",
+  host: HOST,
   dialect: "mysql",
 });
 
