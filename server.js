@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = require("./config/server.config");
+const { PORT, ORIGIN } = require("./config/server.config");
+
 const Sequelise = require("sequelize");
 const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "https://main--deluxe-cuchufli-f03acb.netlify.app",
+  origin: ORIGIN,
 
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // allow these methods
   allowedHeaders: ["Content-Type"], // allow these headers

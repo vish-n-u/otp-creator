@@ -2,7 +2,7 @@ const transporter = require("../config/smtp.config");
 const otpModel = require("../config/db.config");
 
 exports.otpSender = async (req, res) => {
-  console.log("-------Starting new otp sending--------", req.body.to);
+  console.log("-------Starting new otp sending--------", req.body.to, req.body);
   let digits = "0123456789";
   let OTP = "";
   for (let i = 0; i < 6; i++) {
@@ -44,10 +44,10 @@ exports.verify = async (req, res) => {
       },
     });
     console.log("doesOtpExists;", doesOtpExists);
-    if (!doesOtpExists) return res.status(404).send("Invalid");
+    if (!doesOtpExists) return res.status(400).send({ message: "Invalid" });
     else {
       if (req.body.otp != doesOtpExists.otp) {
-        return res.status(404).send("Invalid");
+        return res.status(400).send({ message: "Invalid" });
       } else {
         let x = await otpModel.findOne({
           where: {

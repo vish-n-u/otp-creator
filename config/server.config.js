@@ -3,4 +3,5 @@ if (process.NODE_ENV !== "PRODUCTION") {
 }
 
 PORT = process.env.port;
-module.exports = PORT;
+ORIGIN = process.env.ORIGIN;
+module.exports = {PORT,ORIGIN};
