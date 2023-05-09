@@ -1,7 +1,7 @@
 const nodeMailer = require("nodemailer");
 
 let transporter = nodeMailer.createTransport({
-  port: 465,
+  port: 587,
   service: "gmail",
   // true for 465, false for other ports
   auth: {
