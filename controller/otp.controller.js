@@ -23,7 +23,7 @@ exports.otpSender = async (req, res) => {
     console.log("newOtp", newOtp);
     transporter.sendMail({
       // fnder addressrom: "", // se\
-      from: req.body.from || "vishnuna26@gmail.com",
+      from: req.body.from || "rapidosh77@outlook.com",
       to: req.body.to, // list of receivers
       subject: req.body.subject || "Otp from my app", // Subject lin
       text: OTP, // plain text body
